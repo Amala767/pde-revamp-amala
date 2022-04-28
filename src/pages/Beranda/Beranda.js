@@ -22,8 +22,21 @@ export default class Beranda extends React.Component {
     super();
     this.state = {
       // call variable
+      token: ""
     };
+    if (localStorage.getItem("token")) {
+      this.state.token = localStorage.getItem("token")
+  } else {
+      window.location = "/login"
   }
+  this.headerConfig.bind(this)
+  }
+  headerConfig = () => {
+    let header = {
+        headers: { Authorization: `Bearer ${this.state.token}` }
+    }
+    return header
+}
   render() {
     return (
       <>

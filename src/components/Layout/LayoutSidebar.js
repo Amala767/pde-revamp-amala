@@ -2,7 +2,8 @@
 // bagian page content
 
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+
 
 import { Home, BookOpen, ShoppingBag, FileText, Users, Clipboard } from 'react-feather';
 
@@ -16,6 +17,12 @@ import './LayoutSidebar.css';
 export default function LayoutSidebar({ children }) {
   // Dropdown
   const [showDropDown, setShowDropDown] = useState(false);
+
+  const Logout = () => {
+    localStorage.removeItem("token")
+    localStorage.removeItem("data")
+    window.location = "/login"
+  }
 
   return (
     <div className="parent md:h-screen md:grid md:grid-cols-6 ">
@@ -157,10 +164,10 @@ export default function LayoutSidebar({ children }) {
                 className="flex items-center p-4 text-base font-normal md:dark:hover:text-white dark:hover:bg-green-700 dark:hover:text-white dark:border-gray-700"
                 aria-current="page"
               >
-                <Clipboard className="mr-3" /> LMS Guru
+                <Clipboard className="mr-3" /> LMS 
               </NavLink>
             </li>
-            <li className="mt-1 ml-3 pl-6 hover:bg-red-500 hover:text-white hover:rounded-full w-9/12">
+            {/* <li className="mt-1 ml-3 pl-6 hover:bg-red-500 hover:text-white hover:rounded-full w-9/12">
               <NavLink
                 to="/lmsSiswa"
                 activeClassName="active"
@@ -175,13 +182,13 @@ export default function LayoutSidebar({ children }) {
                 <img src={UserLog} width="42" className="inline pr-2" />
                 Jhon Doe
               </li>
-            </div>
+            </div> */}
           </ul>
         </div>
       </section>
       <main class="main md:col-span-5 bg-gray-100">
-        <div className="grid grid-cols-4 gap-4 pt-12 ml-14">
-          <div class="col-span-3 relative">
+        <div className="grid grid-cols-4 gap-4 pt-12 pb-12 border-b-2 shadow shadow-md ">
+          <div class="col-span-3 relative ml-6">
             <input
               class="focus:ring-red-500 focus:border-red-500 rounded-full w-80 h-11 px-8 border-none"
               text-black="text-black"
@@ -194,15 +201,17 @@ export default function LayoutSidebar({ children }) {
             </button>
           </div>
           <div className="mt-2">
-            <span className="badge bg-red-300 rounded-full pl-2 pr-4 pt-2 pb-3 cursor-pointer">
-              <img src={UserLog} className="inline w-8 mr-2"></img>
-              <span className="text-sm font-medium text-red-500">John Doe</span>
-            </span>
+            <Link to="/Akun" className="text-xl font-normal text-red-600 text-right pr-8">
+              <span className="badge bg-red-300 rounded-full pl-2 pr-4 pt-2 pb-3 cursor-pointer">
+                <img src={UserLog} className="inline w-8 mr-2"></img>
+                <span className="text-sm font-medium text-red-500">John Doe</span>
+              </span>
+            </Link>
             <img
               src={Bell}
               className="inline w-8 ml-8 mr-8 cursor-pointer"
             ></img>
-            <img src={Power} className="inline w-8 cursor-pointer"></img>
+            <img src={Power} className="inline w-8 cursor-pointer" onClick={Logout}></img>
           </div>
         </div>
         {/* <!-- Page content--> */} <div className="">{children} </div>

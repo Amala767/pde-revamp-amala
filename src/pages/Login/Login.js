@@ -14,7 +14,7 @@ export default class Login extends React.Component {
       // call variable
       email: '',
       password: '',
-      roles: '',
+      // roles: '',
     };
 
     this.state.showModal = false;
@@ -44,7 +44,7 @@ export default class Login extends React.Component {
     let sendData = {
       email: this.state.email,
       password: this.state.password,
-      roles: this.state.roles,
+      // roles: this.state.roles,
     };
     let url = baseUrl + '/users/login';
     axios
@@ -116,7 +116,7 @@ export default class Login extends React.Component {
                     className="cursor-pointer absolute w-7 mt-2 ml-80"
                   />
                 </div>
-                <select
+                {/* <select
                   value={this.state.roles}
                   onChange={(ev) => this.setState({ roles: ev.target.value })}
                   className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4 text-gray-500 appearance-none"
@@ -132,7 +132,7 @@ export default class Login extends React.Component {
                   <option value="5">Telkom Group</option>
                   <option value="6">Ministry</option>
                   <option value="7">Super Admin</option>
-                </select>
+                </select> */}
                 <label
                   className="block text-red-500 mt-2 text-sm ml-64"
                   onClick={() => this.Modal()}

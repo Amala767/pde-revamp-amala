@@ -1,8 +1,15 @@
 // inisiasi library default
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../../config";
+import {
+  ThumbsUp,
+  MessageCircle,
+  Share2,
+  MoreHorizontal,
+  // PlusCircle
+} from "react-feather";
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
@@ -14,6 +21,7 @@ import berandaanda from "../../../assets/forumputih.png";
 import temukan from "../../../assets/temukan.png";
 import notifikasi from "../../../assets/bell.png";
 import UserLogin from "../../../assets/user-login.png";
+
 // import postingan from '../../../assets/postingan.png';
 
 export default class Marketplace extends React.Component {
@@ -25,7 +33,7 @@ export default class Marketplace extends React.Component {
       forum: [],
       name: "",
       description: "",
-      image: ""
+      image: "",
     };
 
     if (localStorage.getItem("token")) {
@@ -62,7 +70,7 @@ export default class Marketplace extends React.Component {
   getForum = () => {
     let url = baseUrl + "/chats/groups";
     axios
-      .get(url, this.headerConfig())
+      .get(url,this.headerConfig())
       .then((response) => {
         this.setState({ forum: response.data.data });
         console.log(response.data.data);
@@ -104,13 +112,13 @@ export default class Marketplace extends React.Component {
       .catch((error) => console.log(error));
   };
 
-  SplitDate = date => {
-    return date.split('T')[0]
-  }
+  SplitDate = (date) => {
+    return date.split("T")[0];
+  };
 
   setImage = (param) => {
-    this.state.image = param
-  }
+    this.state.image = param;
+  };
 
   render() {
     return (
@@ -120,44 +128,62 @@ export default class Marketplace extends React.Component {
             <div class="col-span-2 ml-14">
               <div>
                 <h1 className="text-3xl font-semibold">Aktivitas Terbaru ini halaman temukan</h1>
-                <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
-                  {this.state.forum.map((item) => (
-                    <>
-                      <div className="grid grid-cols-9">
-                        <div>
-                          <img src={UserLogin} />
-                        </div>
-                        <div className="col-span-7">
-
-                          <h5 className="text-base font-medium">
-                            {item.name}
-                          </h5>
-                          <span className="font-normal text-sm text-slate-300">
-                            Antonio Purnama
-                          </span>
-                          <h6 className="font-normal text-sm text-slate-300">
-                            {this.SplitDate(item.createdAt)}
-                          </h6>
-
+                {this.state.forum.map(() => (
+                  <div className="card rounded-lg bg-white p-8 my-8 ">
+                    <div className="max-w-full bg-white justify-center flex flex-col rounded-2xl">
+                      <div className="flex flex-row">
+                        <div className="flex items-center">
+                          <img src="https://www.dicoding.com/blog/wp-content/uploads/2019/08/internal-css.png" className="rounded-full w-10 h-10 self-center mr-4"></img>
+                          <span>dari <b>Forum Programmer Indonesia</b></span>
                         </div>
                       </div>
-
-                      <div className="font-normal text-sm mt-4">{item.description}</div>
-                      <div className="mt-2">
-                        <span onClick={() => this.Artikel()}>
-                          <img className="w-full" src={item.image.url}></img>
-                        </span>
-                        <div className="mt-2 grid grid-cols-4">
-                          <div className="col-span-3">
-                            <button>Like : 23</button>
-                            <button className="mx-4">Comment : 23</button>
-                            <button>Share : 23</button>
+                      <hr className="my-4" />
+                      <div className="flex flex-row">
+                        <div className="flex items-center">
+                          <img src={UserLogin} className="rounded-full w-15 h-15 self-center mr-4"></img>
+                          <div>
+                            <h1
+                              style={{
+                                fontWeight: "600",
+                                fontSize: "20px",
+                              }}
+                            >
+                              Pr
+                            </h1>
+                            <span className="text-slate-500">Yesterday, at 12.04</span>
                           </div>
                         </div>
+                        <button className="inline">
+                          <MoreHorizontal color="#EF4444"/>
+                        </button>
                       </div>
-                    </>
-                  ))}
-                </div>
+                      <NavLink to="/templateBlog" className="flex flex-col">
+                        <p
+                          style={{
+                            marginBottom: "15px",
+                            marginTop: "15px",
+                            fontWeight: "400",
+                            fontSize: "15px",
+                          }}
+                        >
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequatur corrupti quos odit enim nisi sed asperiores dignissimos, harum, ullam earum eius rem molestiae quod non necessitatibus unde amet. Illum vero delectus dignissimos quisquam voluptates ab sit. Natus autem consequuntur, minima dicta reiciendis nemo a molestiae mollitia vitae pariatur! Voluptas.
+                        </p>
+                        <img src="https://redaksi.pens.ac.id/wp-content/uploads/2018/12/photo-1529101091764-c3526daf38fe.jpg" className="object-cover" />
+                      </NavLink>
+                      <div class=" bottom-0 left-0 grid grid-cols-3 w-4/5" style={{ margin: "0 auto", marginTop: "1.5rem" }}>
+                        <button className="inline">
+                          <ThumbsUp className="inline" />
+                        </button>
+                        <button className="inline">
+                          <MessageCircle className="inline" />
+                        </button>
+                        <button className="inline">
+                          <Share2 className="inline" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -258,10 +284,7 @@ export default class Marketplace extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-
-                  
-                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveBlogs(ev)}>
-
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={(ev) => this.saveBlogs(ev)}>
                     <div className="relative px-6 pt-6 flex-auto">
                       <Dragndrop onChange={this.setImage} /> {/* kurang setState to image */}
                       <input

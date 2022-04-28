@@ -33,8 +33,8 @@ export default function DataBox() {
               <p className="text-gray-300 text-xs mt-2">19/02/2022, 14:18 WIB</p>
             </div>
             <div>
-              <Link to="/Berita"  class="inline-flex items-center py-2 px-3 mt-12 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"  >
-                {''}Selengkapnya
+              <Link to="/templateBlog"  class="inline-flex items-center py-2 px-3 mt-12 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"  >
+                Selengkapnya
               </Link>
             </div>
            </div>

@@ -79,7 +79,7 @@ export default class Sertifikasi extends React.Component {
     }
     console.log(form)
     let url = baseUrl + "/submission/certification"
-    axios.post(url, form, this.headerConfig())
+    axios.post(url, form, )
       .then(response => {
         window.alert(response.data.message)
         console.log(response)

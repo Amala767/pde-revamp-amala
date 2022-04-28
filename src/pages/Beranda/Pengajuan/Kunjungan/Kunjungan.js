@@ -40,7 +40,7 @@ export default class Kunjungan extends React.Component {
 
   getIndustrial_visit = () => {
     let url = baseUrl + "/submission/industrial-visit"
-    axios.get(url, this.headerConfig())
+    axios.get(url,this.headerConfig())
       .then(response => {
         this.setState({ industrial_visit: response.data.data })
         console.log(response.data.data)
@@ -73,7 +73,7 @@ export default class Kunjungan extends React.Component {
     }
     console.log(form)
     let url = baseUrl + "/submission/industrial-visit"
-    axios.post(url, form, this.headerConfig())
+    axios.post(url, form,)
       .then(response => {
         window.alert(response.data.message)
         console.log(response)

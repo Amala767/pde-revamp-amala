@@ -64,8 +64,8 @@ export default class Registrasi extends React.Component {
       .then((response) => {
         console.log(sendData);
         if (sendData != null) {
-          let data = response.data.data;
-          localStorage.setItem("data", JSON.stringify(data));
+          // let data = response.data.data;
+          // localStorage.setItem("data", JSON.stringify(data));
           this.props.history.push("/login");
         } else {
           this.setState({ message: response.data.message });

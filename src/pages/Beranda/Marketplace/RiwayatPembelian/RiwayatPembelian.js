@@ -180,13 +180,13 @@ export default class RiwayatPembelian extends React.Component {
                       <div className="mt-6 ml-5">
                           <Link to="/keranjang">
                               <img src={trolly} className="inline mr-4"></img>
-                              <span className="font-normal text-base ">Keranjang</span>
+                              <span className="font-normal text-base ">List Pembelian</span>
                           </Link>
                       </div>
                       <div className="mt-6">
                           <Link to="/riwayatpembelian" className="py-3 pl-5 pr-12 text-white bg-red-500 rounded-2xl">
                               <img src={tag} className="inline mr-4"></img>
-                              <span className="font-normal text-base ">Riwayat Pembelian</span>
+                              <span className="font-normal text-base ">Riwayat Pesanan</span>
                           </Link>
                       </div>
                       <div className="mt-8">
